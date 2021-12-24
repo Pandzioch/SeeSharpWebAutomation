@@ -1,9 +1,8 @@
-﻿Feature: ContactUs
-	Simple calculator for adding two numbers
+﻿Feature: ContactUsForm
+	
+@Regression
 
-@mytag
-Scenario: Add two numbers
-	Given the first number is 50
-	And the second number is 70
-	When the two numbers are added
-	Then the result should be 120
+Scenario: Send completed ContactUs form
+	Given As the user picks contactUs button
+	When User fills the form
+	Then User sends form

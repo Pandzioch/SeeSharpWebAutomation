@@ -1,23 +1,21 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using TechTalk.SpecFlow;
 
 namespace SeeSharpWebAutomation
 {
     [Binding]
-    public sealed class Main
+    public class Main
     {
-        IWebDriver driver = new ChromeDriver();
+        IWebDriver driver;
 
         [BeforeScenario]
         public void BeforeScenario()
         {
+            driver = new ChromeDriver();
             driver.Manage().Window.FullScreen();
             driver.Navigate().GoToUrl("http://automationpractice.com/index.php");
+            ScenarioContext.Current.Add("currentDriver", driver);
         }
 
         [AfterScenario]
