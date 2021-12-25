@@ -21,18 +21,19 @@ namespace SeeSharpWebAutomation.StepsFiles
         public void GivenAsTheUserPicksContactUsButton()
         {
             main.EnterContactUs(driver);
+            contact.ContactUsForm(driver);
         }
         
         [When(@"User fills the form")]
         public void WhenUserFillsTheForm()
         {
-            
+            contact.FillingForm(driver);
         }
         
         [Then(@"User sends form")]
         public void ThenUserSendsForm()
         {
-            
+            contact.SendMessage(driver);
         }
     }
 }

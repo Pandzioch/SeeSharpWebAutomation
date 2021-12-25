@@ -17,9 +17,9 @@ namespace SeeSharpWebAutomation
             driver = new ChromeDriver();
             wait = new WebDriverWait(driver, System.TimeSpan.FromSeconds(10));
 
-            driver.Manage().Window.FullScreen();
+            driver.Manage().Window.Maximize();
             driver.Navigate().GoToUrl("http://automationpractice.com/index.php");
-            ScenarioContext.Current.Add("wait", wait);
+            ScenarioContext.Current.Add("Wait", wait);
             ScenarioContext.Current.Add("currentDriver", driver);
         }
 
