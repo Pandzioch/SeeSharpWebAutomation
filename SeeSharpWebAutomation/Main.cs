@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.UI;
 using TechTalk.SpecFlow;
 
 namespace SeeSharpWebAutomation
@@ -8,13 +9,17 @@ namespace SeeSharpWebAutomation
     public class Main
     {
         IWebDriver driver;
+        WebDriverWait wait;
 
         [BeforeScenario]
         public void BeforeScenario()
         {
             driver = new ChromeDriver();
+            wait = new WebDriverWait(driver, System.TimeSpan.FromSeconds(10));
+
             driver.Manage().Window.FullScreen();
             driver.Navigate().GoToUrl("http://automationpractice.com/index.php");
+            ScenarioContext.Current.Add("wait", wait);
             ScenarioContext.Current.Add("currentDriver", driver);
         }
 
